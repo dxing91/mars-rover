@@ -7,14 +7,14 @@ export function isValidInput(input) {
     && isValidRoverPositions(canvasSizeCommandString, roverCommandStrings)
 }
 
-function isValidCanvasCommand(canvasSizeCommandString) {
+export function isValidCanvasCommand(canvasSizeCommandString) {
   const canvasSizeRegex = /^[1-9]\d* [1-9]\d*$/
   return canvasSizeRegex.test(canvasSizeCommandString)
 }
 
-function isValidRoverCommands(roverCommandStrings) {
+export function isValidRoverCommands(roverCommandStrings) {
   const roverPositionRegex = /^\d+ \d+ (N|E|W|S)$/
-  const roverMovesRegex = /^(L|R|M)+$/
+  const roverMovesRegex = /^(L|R|M)*$/
   for (let i = 0, length = roverCommandStrings.length; i < length; i = i + 2) {
     if (!roverPositionRegex.test(roverCommandStrings[i]) || !roverMovesRegex.test(roverCommandStrings[i + 1])) {
       return false
@@ -23,7 +23,7 @@ function isValidRoverCommands(roverCommandStrings) {
   return true
 }
 
-function isValidRoverPositions(canvasSizeCommandString, roverCommandStrings) {
+export function isValidRoverPositions(canvasSizeCommandString, roverCommandStrings) {
   const [ constraintX, constraintY ] = canvasSizeCommandString.split(' ').map(s => parseInt(s))
   for (let i = 0, length = roverCommandStrings.length; i < length; i = i + 2) {
     const [ roverX, roverY ] = roverCommandStrings[i].split(' ').slice(0, 2).map(s => parseInt(s))

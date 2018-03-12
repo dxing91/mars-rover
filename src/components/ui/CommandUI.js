@@ -6,6 +6,7 @@ export default function CommandUI({input, output, onInputChange, onSubmit, error
       <div className='command__column'>
         <h2 className='command__heading'>Input</h2>
         <textarea
+          id='input'
           className='command__textarea'
           rows='10'
           value={input}
@@ -21,6 +22,7 @@ export default function CommandUI({input, output, onInputChange, onSubmit, error
       <div className='command__column'>
         <h2 className='command__heading'>Output</h2>
         <textarea
+          id='output'
           className='command__textarea'
           rows='10'
           value={output}
