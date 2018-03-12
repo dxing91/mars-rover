@@ -14,6 +14,7 @@ export default function CommandUI({input, output, onInputChange, onSubmit, error
         {error ? <p className='command__error'>{error}</p> : null}
       </div>
       <button
+        id='submit'
         className='command__button'
         onClick={onSubmit}
         disabled={output}>

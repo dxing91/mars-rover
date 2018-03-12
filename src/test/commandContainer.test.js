@@ -23,7 +23,7 @@ describe('<Command />', () => {
     const wrapper = mount(<Command />)
     const input = '5 5\n1 2 N\nLMLMLMLMM\n3 3 E\nMMRMMRMRRM'
     wrapper.find('#input').simulate('change', {target: {value: input}})
-    wrapper.find('button').simulate('click')
+    wrapper.find('#submit').simulate('click')
     expect(wrapper.find('#output').instance().value).to.equal('1 3 N\n5 1 E\n')
   })
 
@@ -31,7 +31,7 @@ describe('<Command />', () => {
     const wrapper = mount(<Command />)
     const input = 'A5 5\n1 2 N\nLMLMLMLMM\n3 3 E\nMMRMMRMRRM'
     wrapper.find('#input').simulate('change', {target: {value: input}})
-    wrapper.find('button').simulate('click')
+    wrapper.find('#submit').simulate('click')
     expect(wrapper.find('.command__error').exists()).to.be.true
   })
 })
